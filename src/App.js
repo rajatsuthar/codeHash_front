@@ -22,7 +22,7 @@ function App() {
       setJobId("");
       setStatus("");
       setOutput("");
-    const {data}=await axios.post("http://localhost:5000/run",payload);
+    const {data}=await axios.post("https://codehash-backend.onrender.com/run",payload);
     console.log(data);
     setJobId(data.jobId);
     let intervalId;
@@ -30,7 +30,7 @@ function App() {
      intervalId=setInterval(async()=>{
 
 
-      const {data: dataRes}=await axios.get("http://localhost:5000/status",{params:{id:data.jobId}}
+      const {data: dataRes}=await axios.get("https://codehash-backend.onrender.com/status",{params:{id:data.jobId}}
       );
       const {success,job,error}=dataRes;
       console.log(dataRes);
